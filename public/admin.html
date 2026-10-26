@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0c1715">
+    <title>Admin — Sharelok</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body class="admin-body">
+    <header class="site-header">
+      <a class="brand" href="/"><span class="brand-mark">S</span> sharelok</a>
+      <span class="admin-label">RUANG ADMIN</span>
+    </header>
+    <main class="admin-main">
+      <section class="login-panel" id="login-panel">
+        <p class="eyebrow">AKSES TERBATAS</p>
+        <h1>Selamat datang<br><span>kembali.</span></h1>
+        <p class="muted">Masuk untuk melihat perangkat dan lokasi terbaru.</p>
+        <form id="login-form">
+          <label for="password">Password admin</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+          <button class="button button-primary button-full" type="submit">Masuk ke dashboard <span aria-hidden="true">→</span></button>
+          <p class="form-message" id="login-message" role="alert"></p>
+        </form>
+      </section>
+      <section class="dashboard hidden" id="dashboard">
+        <div class="dashboard-heading">
+          <div><p class="eyebrow"><span class="live-dot"></span> DASHBOARD ADMIN</p><h1>Lokasi perangkat</h1></div>
+          <button class="button button-quiet" id="logout-button" type="button">Keluar</button>
+        </div>
+        <div class="dashboard-grid">
+          <section class="panel location-panel">
+            <div class="panel-heading"><div><p class="eyebrow">LOKASI TERBARU</p><h2 id="location-device">Belum ada lokasi</h2></div><span id="location-source" class="source-pill">MENUNGGU</span></div>
+            <div class="map-placeholder" id="map-placeholder"><div class="map-lines"></div><div class="map-pin">●</div><p>Lokasi akan muncul setelah perangkat mengirim pembaruan.</p></div>
+            <div class="location-details hidden" id="location-details">
+              <div><span>KOORDINAT</span><strong id="coordinates">—</strong></div>
+              <div><span>AKURASI</span><strong id="accuracy">—</strong></div>
+              <div><span>DIPERBARUI</span><strong id="updated-at">—</strong></div>
+              <a id="map-link" class="button button-secondary" href="#" target="_blank" rel="noopener noreferrer">Buka di OpenStreetMap ↗</a>
+            </div>
+          </section>
+          <aside class="panel devices-panel">
+            <div class="panel-heading"><div><p class="eyebrow">PERANGKAT</p><h2>Kelola akses</h2></div></div>
+            <p class="muted">Buat kode sekali pakai untuk memasangkan browser pengguna.</p>
+            <button class="button button-primary button-full" id="pair-button" type="button">＋ Buat kode pairing</button>
+            <div class="pairing-box hidden" id="pairing-box"><span>KODE PAIRING · BERLAKU 10 MENIT</span><strong id="pairing-code"></strong><small>Masukkan kode ini di halaman berbagi lokasi.</small></div>
+            <div class="device-list" id="device-list"></div>
+            <details class="password-settings">
+              <summary>Ubah password admin</summary>
+              <form id="password-form">
+                <label for="current-password">Password saat ini</label>
+                <input id="current-password" name="currentPassword" type="password" autocomplete="current-password" required>
+                <label for="new-password">Password baru (minimal 12 karakter)</label>
+                <input id="new-password" name="newPassword" type="password" autocomplete="new-password" minlength="12" required>
+                <button class="button button-secondary" type="submit">Simpan password</button>
+                <p class="form-message" id="password-message" role="alert"></p>
+              </form>
+            </details>
+          </aside>
+        </div>
+        <p class="dashboard-note">Pembaruan otomatis tiap 30 detik. Hanya lokasi terbaru yang disimpan; mencabut perangkat menghapus lokasi terakhirnya.</p>
+      </section>
+    </main>
+    <script src="/admin.js" defer></script>
+  </body>
+</html>

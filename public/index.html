@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0c1715">
+    <title>Sharelok — berbagi lokasi dengan aman</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Sharelok halaman utama"><span class="brand-mark">S</span> sharelok</a>
+      <a class="text-link" href="/admin">Masuk admin <span aria-hidden="true">↗</span></a>
+    </header>
+    <main class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> LOKASI, DENGAN PERSETUJUAN</p>
+        <h1>Tetap terhubung.<br><span>Dengan kendali penuh.</span></h1>
+        <p class="intro">Bagikan lokasi dari browser ke dashboard admin yang dipasangkan. Pelacakan hanya dimulai setelah Anda setuju dan memberi izin lokasi.</p>
+        <a class="button button-primary" href="#mulai-berbagi">Mulai berbagi <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-card" aria-label="Informasi pembaruan lokasi">
+        <div class="card-top"><span>STATUS LOKASI</span><span class="status-pill"><i></i><span id="tracking-status">Belum aktif</span></span></div>
+        <div class="radar">
+          <span class="radar-ring ring-one"></span>
+          <span class="radar-ring ring-two"></span>
+          <span class="radar-ring ring-three"></span>
+          <span class="radar-point"></span>
+          <span class="radar-center">S</span>
+        </div>
+        <div class="card-bottom"><span id="sharing-device">Lokasi tetap privat</span><span>tiap 30 detik saat halaman aktif</span></div>
+      </div>
+    </main>
+    <section class="sharing-section" id="mulai-berbagi">
+      <div class="sharing-copy">
+        <p class="eyebrow">MULAI BERBAGI</p>
+        <h2>Lokasi Anda,<br><span>pilihan Anda.</span></h2>
+        <p>Masukkan kode pairing yang dibuat admin. Browser akan meminta izin lokasi saat Anda mulai berbagi.</p>
+      </div>
+      <form class="sharing-form" id="sharing-form">
+        <label for="device-name">Nama perangkat</label>
+        <input id="device-name" name="name" maxlength="60" autocomplete="off" placeholder="Contoh: Ponsel saya" required>
+        <label for="pairing-code-input">Kode pairing dari admin</label>
+        <input id="pairing-code-input" name="code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" placeholder="6 digit" required>
+        <label class="consent-label"><input id="location-consent" type="checkbox" required><span>Saya setuju membagikan lokasi perangkat ini kepada admin Sharelok. Saya dapat menghentikannya kapan saja.</span></label>
+        <button class="button button-primary button-full" id="start-sharing" type="submit">Setuju &amp; mulai berbagi</button>
+        <button class="button button-secondary button-full hidden" id="stop-sharing" type="button">Hentikan berbagi</button>
+        <p class="sharing-message" id="sharing-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <section class="features" id="cara-kerja">
+      <article><span class="feature-number">01</span><h2>Masukkan kode</h2><p>Admin membuat kode pairing sementara. Kode hanya dapat digunakan sekali untuk menghubungkan browser ini.</p></article>
+      <article><span class="feature-number">02</span><h2>Setujui lokasi</h2><p>Browser meminta izin saat Anda memulai. Berbagi hanya berjalan saat halaman ini terbuka dan tidak dihentikan.</p></article>
+      <article><span class="feature-number">03</span><h2>Admin melihat lokasi</h2><p>Dashboard admin menampilkan lokasi terbaru dan akurasinya. Riwayat perjalanan tidak disimpan.</p></article>
+    </section>
+    <aside class="notice"><strong>Tentang izin dan akurasi.</strong> Browser meminta izin lokasi melalui sistem perangkat dan dapat menggunakan sumber lokasi yang tersedia, tetapi tidak memberi tahu apakah koordinat berasal dari GPS atau jaringan. Browser web tidak dapat membaca atau meminta lokasi BTS secara langsung. HTTPS diperlukan untuk akses lokasi; pembaruan dapat tertunda saat tab tidak aktif, browser dibatasi, atau koneksi terputus.</aside>
+    <footer><span>Sharelok</span><span>Lokasi hanya dibagikan dengan persetujuan.</span></footer>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
